@@ -1,3 +1,4 @@
+import cluster.management.ServiceRegistry;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
@@ -9,7 +10,9 @@ import java.io.IOException;
 public class Application implements Watcher {
     private static final int SESSION_TIMEOUT = 3000;
     private static final String ZOOKEEPER_ADDRESS = "localhost:2181";
+    private static final int DEFAULT_PORT = 8080;
     private ZooKeeper zookeeper;
+
 
     public ZooKeeper connectToZookeeper() throws IOException {
         zookeeper = new ZooKeeper(Application.ZOOKEEPER_ADDRESS,
@@ -45,10 +48,16 @@ public class Application implements Watcher {
     }
 
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
-
+        int currentServerPort = args.length == 1 ? Integer.parseInt(args[0]) : DEFAULT_PORT;
         Application app = new Application();
         ZooKeeper zooKeeper = app.connectToZookeeper();
-        LeaderElection leaderElection = new LeaderElection(zooKeeper);
+
+        ServiceRegistry serviceRegistry = new ServiceRegistry(zooKeeper);
+
+        OnElectionAction onElectionAction = new OnElectionAction(serviceRegistry, currentServerPort);
+
+
+        LeaderElection leaderElection = new LeaderElection(zooKeeper, onElectionAction);
         leaderElection.volunteerForLeadership();
         leaderElection.electLeader();
 
