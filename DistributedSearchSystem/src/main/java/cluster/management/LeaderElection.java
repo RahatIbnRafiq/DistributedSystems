@@ -44,6 +44,16 @@ public class LeaderElection implements Watcher {
     }
     @Override
     public void process(WatchedEvent watchedEvent) {
+        switch (watchedEvent.getType()) {
+            case NodeDeleted:
+                try {
+                    relectLeader();
+                } catch (KeeperException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+        }
 
     }
 }
