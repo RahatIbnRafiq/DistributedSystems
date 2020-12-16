@@ -8,4 +8,5 @@ public class Constants {
     public static final String WORKERS_REGISTRY_ZNODE = "/workers_service_registry";
     public static final String STATUS_ENDPOINT = "/status";
     public static final String WORKER_TASK_ENDPOINT = "/task";
+    public static final String SEARCH_ENDPOINT = "/search";
 }
