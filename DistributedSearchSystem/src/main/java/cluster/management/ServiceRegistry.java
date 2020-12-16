@@ -1,11 +1,17 @@
 package cluster.management;
 
 import org.apache.zookeeper.*;
+import org.apache.zookeeper.data.Stat;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ServiceRegistry {
     private ZooKeeper zooKeeper;
     private String serviceRegistryZnode;
     private String currentZnode = null;
+    private List<String> allServiceAddresses = null;
 
     public ServiceRegistry(ZooKeeper zooKeeper, String serviceRegistryZnode) {
         this.zooKeeper = zooKeeper;
@@ -47,5 +53,22 @@ public class ServiceRegistry {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private synchronized void updateAddresses() throws KeeperException, InterruptedException {
+        List<String> workers = zooKeeper.getChildren(serviceRegistryZnode, true);
+        List<String> addresses = new ArrayList<>(workers.size());
+
+        for(String worker : workers) {
+            String serviceFullPath = this.serviceRegistryZnode + "/" + worker;
+            Stat stat = zooKeeper.exists(serviceFullPath, false);
+            if(stat == null)
+                continue;
+            byte[] addressBytes = zooKeeper.getData(serviceFullPath, false, stat);
+            String address = new String(addressBytes);
+            addresses.add(address);
+        }
+        this.allServiceAddresses = Collections.unmodifiableList(addresses);
+        System.out.println("The cluster addresses are: " + this.allServiceAddresses);
     }
 }
