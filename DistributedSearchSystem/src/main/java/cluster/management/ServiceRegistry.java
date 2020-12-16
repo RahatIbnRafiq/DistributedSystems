@@ -36,4 +36,16 @@ public class ServiceRegistry {
                 CreateMode.EPHEMERAL_SEQUENTIAL);
         System.out.println("Registered to the service registry");
     }
+
+    public void unregisterFromcluster() {
+        try {
+            if(this.currentZnode != null && zooKeeper.exists(this.currentZnode, false) != null) {
+                zooKeeper.delete(this.currentZnode, -1);
+            }
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
