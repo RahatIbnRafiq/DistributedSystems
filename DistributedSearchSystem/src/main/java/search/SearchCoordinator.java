@@ -12,6 +12,7 @@ import org.apache.zookeeper.KeeperException;
 import utilities.TFIDF;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class SearchCoordinator implements OnRequestCallback {
             request = SearchModel.Request.parseFrom(requestPayload);
             SearchModel.Response response = createResponse(request);
             return response.toByteArray();
-        } catch (InvalidProtocolBufferException e) {
+        } catch (InvalidProtocolBufferException | KeeperException | InterruptedException e) {
             e.printStackTrace();
             return SearchModel.Response.getDefaultInstance().toByteArray();
         }
@@ -60,6 +61,16 @@ public class SearchCoordinator implements OnRequestCallback {
         return searchResponse.build();
     }
 
+    public List<Task> createTasks(int numWorkers, List<String> searchTerms) {
+        List<List<String>> documentsForWorkers = splitDocumentListForWorkers(numWorkers, documents);
+        List<Task> tasks = new ArrayList<>();
+        for(List<String> documentsForWorker : documentsForWorkers) {
+            Task task = new Task(searchTerms, documentsForWorker);
+            tasks.add(task);
+        }
+        return tasks;
+    }
+
     @Override
     public String getEndpoint() {
         return Constants.SEARCH_ENDPOINT;
@@ -71,5 +82,24 @@ public class SearchCoordinator implements OnRequestCallback {
                 .stream()
                 .map(documentName -> Constants.BOOKS_DIRECTORY + "/" + documentName)
                 .collect(Collectors.toList());
+    }
+
+    private static List<List<String>> splitDocumentListForWorkers(int numberOfWorkers, List<String> documents) {
+        int numberOfDocumentsPerWorker = (documents.size() + numberOfWorkers - 1) / numberOfWorkers;
+
+        List<List<String>> workersDocuments = new ArrayList<>();
+
+        for (int i = 0; i < numberOfWorkers; i++) {
+            int firstDocumentIndex = i * numberOfDocumentsPerWorker;
+            int lastDocumentIndexExclusive = Math.min(firstDocumentIndex + numberOfDocumentsPerWorker, documents.size());
+
+            if (firstDocumentIndex >= lastDocumentIndexExclusive) {
+                break;
+            }
+            List<String> currentWorkerDocuments = new ArrayList<>(documents.subList(firstDocumentIndex, lastDocumentIndexExclusive));
+
+            workersDocuments.add(currentWorkerDocuments);
+        }
+        return workersDocuments;
     }
 }
