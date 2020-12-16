@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpServer;
 import constants.Constants;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
 public class WebServer {
@@ -36,5 +37,13 @@ public class WebServer {
         }
         String responseMessage = "Server is alive\n";
         sendResponse(responseMessage.getBytes(),exchange);
+    }
+
+    private void sendResponse(byte[] responseBytes, HttpExchange exchange) throws IOException {
+        exchange.sendResponseHeaders(200, responseBytes.length);
+        OutputStream outputStream = exchange.getResponseBody();
+        outputStream.write(responseBytes);
+        outputStream.flush();
+        outputStream.close();
     }
 }
