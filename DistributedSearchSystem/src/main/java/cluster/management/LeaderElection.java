@@ -10,9 +10,11 @@ import java.util.List;
 public class LeaderElection implements Watcher {
     private ZooKeeper zooKeeper;
     private String currentZNodeName;
+    private OnElectionCallback onElectionCallback;
 
-    public LeaderElection(ZooKeeper zookeeper) {
+    public LeaderElection(ZooKeeper zookeeper, OnElectionCallback onElectionCallback) {
         this.zooKeeper = zookeeper;
+        this.onElectionCallback = onElectionCallback;
     }
 
     public void volunteerForLeadership() throws KeeperException, InterruptedException {
@@ -31,6 +33,7 @@ public class LeaderElection implements Watcher {
             String smallestChild = children.get(0);
             if (smallestChild.equals(currentZNodeName)) {
                 System.out.println("I am the leader");
+                onElectionCallback.onElectedToBeLeader();
                 return;
             } else {
                 System.out.println("I am not the leader");
@@ -39,6 +42,7 @@ public class LeaderElection implements Watcher {
                 predecessorStat = zooKeeper.exists(Constants.ELECTION_NAMESPACE + "/" + predecessorZnodeName, this);
             }
         }
+        onElectionCallback.onworker();
         System.out.println("Watching znode " + predecessorZnodeName);
         System.out.println();
 

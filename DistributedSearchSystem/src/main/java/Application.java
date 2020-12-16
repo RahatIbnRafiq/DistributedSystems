@@ -1,4 +1,5 @@
 import cluster.management.LeaderElection;
+import cluster.management.ServiceRegistry;
 import constants.Constants;
 import org.apache.zookeeper.*;
 
@@ -14,7 +15,10 @@ public class Application implements Watcher {
         Application application = new Application();
         ZooKeeper zooKeeper = application.connectToZookeeper();
 
-        LeaderElection leaderElection = new LeaderElection(zooKeeper);
+        ServiceRegistry serviceRegistry = new ServiceRegistry(zooKeeper,Constants.WORKERS_REGISTRY_ZNODE);
+        OnElectionAction onElectionAction = new OnElectionAction(serviceRegistry, currentServerPort);
+
+        LeaderElection leaderElection = new LeaderElection(zooKeeper, onElectionAction);
         leaderElection.volunteerForLeadership();
         leaderElection.relectLeader();
 
