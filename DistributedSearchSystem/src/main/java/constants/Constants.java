@@ -6,4 +6,5 @@ public class Constants {
     public static final String ELECTION_NAMESPACE = "/election";
 
     public static final String WORKERS_REGISTRY_ZNODE = "/workers_service_registry";
+    public static final String STATUS_ENDPOINT = "/status";
 }
