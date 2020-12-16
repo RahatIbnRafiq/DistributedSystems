@@ -56,7 +56,7 @@ public class ServiceRegistry implements Watcher {
     }
 
     private synchronized void updateAddresses() throws KeeperException, InterruptedException {
-        List<String> workers = zooKeeper.getChildren(serviceRegistryZnode, true);
+        List<String> workers = zooKeeper.getChildren(serviceRegistryZnode,this);
         List<String> addresses = new ArrayList<>(workers.size());
 
         for(String worker : workers) {
