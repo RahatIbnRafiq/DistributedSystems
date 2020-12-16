@@ -72,6 +72,21 @@ public class ServiceRegistry implements Watcher {
         System.out.println("The cluster addresses are: " + this.allServiceAddresses);
     }
 
+    public void registerForUpdates() {
+        try {
+            updateAddresses();
+        } catch (KeeperException e) {
+        } catch (InterruptedException e) {
+        }
+    }
+
+    public synchronized List<String> getAllServiceAddresses() throws KeeperException, InterruptedException {
+        if (allServiceAddresses == null) {
+            updateAddresses();
+        }
+        return allServiceAddresses;
+    }
+
     @Override
     public void process(WatchedEvent watchedEvent) {
         try {
