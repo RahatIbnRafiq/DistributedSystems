@@ -7,16 +7,24 @@ import model.Result;
 import model.Task;
 import model.proto.SearchModel;
 import networking.OnRequestCallback;
+import networking.WebClient;
 import org.apache.zookeeper.KeeperException;
 import utilities.TFIDF;
 
+import java.io.File;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchCoordinator implements OnRequestCallback {
     private final ServiceRegistry workersServiceRegistry;
+    private final List<String> documents;
+    private final WebClient client;
 
-    public SearchCoordinator(ServiceRegistry workersServiceRegistry) {
+    public SearchCoordinator(ServiceRegistry workersServiceRegistry, WebClient client) {
         this.workersServiceRegistry = workersServiceRegistry;
+        this.client = client;
+        this.documents = readDocumentsList();
     }
 
     @Override
@@ -55,5 +63,13 @@ public class SearchCoordinator implements OnRequestCallback {
     @Override
     public String getEndpoint() {
         return Constants.SEARCH_ENDPOINT;
+    }
+
+    private static List<String> readDocumentsList() {
+        File documentsDirectory = new File(Constants.BOOKS_DIRECTORY);
+        return Arrays.asList(documentsDirectory.list())
+                .stream()
+                .map(documentName -> Constants.BOOKS_DIRECTORY + "/" + documentName)
+                .collect(Collectors.toList());
     }
 }
