@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ServiceRegistry {
+public class ServiceRegistry implements Watcher {
     private ZooKeeper zooKeeper;
     private String serviceRegistryZnode;
     private String currentZnode = null;
@@ -70,5 +70,16 @@ public class ServiceRegistry {
         }
         this.allServiceAddresses = Collections.unmodifiableList(addresses);
         System.out.println("The cluster addresses are: " + this.allServiceAddresses);
+    }
+
+    @Override
+    public void process(WatchedEvent watchedEvent) {
+        try {
+            updateAddresses();
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
