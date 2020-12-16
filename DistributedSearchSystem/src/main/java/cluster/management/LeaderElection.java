@@ -29,13 +29,14 @@ public class LeaderElection implements Watcher {
             List<String> children = this.zooKeeper.getChildren(Constants.ELECTION_NAMESPACE, false);
             Collections.sort(children);
             String smallestChild = children.get(0);
-            if (this.currentZNodeName == smallestChild) {
+            if (smallestChild.equals(currentZNodeName)) {
                 System.out.println("I am the leader");
                 return;
             } else {
                 System.out.println("I am not the leader");
                 int predecessorIndex = Collections.binarySearch(children, currentZNodeName) -1;
-                predecessorStat = zooKeeper.exists(children.get(predecessorIndex), this);
+                predecessorZnodeName = children.get(predecessorIndex);
+                predecessorStat = zooKeeper.exists(Constants.ELECTION_NAMESPACE + "/" + predecessorZnodeName, this);
             }
         }
         System.out.println("Watching znode " + predecessorZnodeName);
