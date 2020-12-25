@@ -4,62 +4,60 @@
 package model.proto;
 
 public final class SearchModel {
-  private SearchModel() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+  private SearchModel() {
   }
 
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
+          com.google.protobuf.ExtensionRegistryLite registry) {
   }
+
+  public static void registerAllExtensions(
+          com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+            (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+
   public interface RequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:distributed.search.Request)
-      com.google.protobuf.MessageOrBuilder {
+          // @@protoc_insertion_point(interface_extends:distributed.search.Request)
+          com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required string search_query = 1;</code>
-     * @return Whether the searchQuery field is set.
      */
     boolean hasSearchQuery();
+
     /**
      * <code>required string search_query = 1;</code>
-     * @return The searchQuery.
      */
     java.lang.String getSearchQuery();
+
     /**
      * <code>required string search_query = 1;</code>
-     * @return The bytes for searchQuery.
      */
     com.google.protobuf.ByteString
-        getSearchQueryBytes();
+    getSearchQueryBytes();
   }
+
   /**
    * <pre>
    * request from front end to search coordinator
    * </pre>
-   *
+   * <p>
    * Protobuf type {@code distributed.search.Request}
    */
   public static final class Request extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:distributed.search.Request)
-      RequestOrBuilder {
-  private static final long serialVersionUID = 0L;
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:distributed.search.Request)
+          RequestOrBuilder {
+    private static final long serialVersionUID = 0L;
+
     // Use Request.newBuilder() to construct.
     private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private Request() {
       searchQuery_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Request();
     }
 
     @java.lang.Override
@@ -67,17 +65,18 @@ public final class SearchModel {
     getUnknownFields() {
       return this.unknownFields;
     }
+
     private Request(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+              com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -94,7 +93,7 @@ public final class SearchModel {
             }
             default: {
               if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
+                      input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -105,48 +104,47 @@ public final class SearchModel {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+                e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
+
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
+    getDescriptor() {
       return model.proto.SearchModel.internal_static_distributed_search_Request_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
+    internalGetFieldAccessorTable() {
       return model.proto.SearchModel.internal_static_distributed_search_Request_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              model.proto.SearchModel.Request.class, model.proto.SearchModel.Request.Builder.class);
+              .ensureFieldAccessorsInitialized(
+                      model.proto.SearchModel.Request.class, model.proto.SearchModel.Request.Builder.class);
     }
 
     private int bitField0_;
     public static final int SEARCH_QUERY_FIELD_NUMBER = 1;
     private volatile java.lang.Object searchQuery_;
+
     /**
      * <code>required string search_query = 1;</code>
-     * @return Whether the searchQuery field is set.
      */
-    @java.lang.Override
     public boolean hasSearchQuery() {
       return ((bitField0_ & 0x00000001) != 0);
     }
+
     /**
      * <code>required string search_query = 1;</code>
-     * @return The searchQuery.
      */
-    @java.lang.Override
     public java.lang.String getSearchQuery() {
       java.lang.Object ref = searchQuery_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           searchQuery_ = s;
@@ -154,18 +152,17 @@ public final class SearchModel {
         return s;
       }
     }
+
     /**
      * <code>required string search_query = 1;</code>
-     * @return The bytes for searchQuery.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
-        getSearchQueryBytes() {
+    getSearchQueryBytes() {
       java.lang.Object ref = searchQuery_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         searchQuery_ = b;
         return b;
       } else {
@@ -174,6 +171,7 @@ public final class SearchModel {
     }
 
     private byte memoizedIsInitialized = -1;
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -190,7 +188,7 @@ public final class SearchModel {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+            throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, searchQuery_);
       }
@@ -214,7 +212,7 @@ public final class SearchModel {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof model.proto.SearchModel.Request)) {
         return super.equals(obj);
@@ -224,7 +222,7 @@ public final class SearchModel {
       if (hasSearchQuery() != other.hasSearchQuery()) return false;
       if (hasSearchQuery()) {
         if (!getSearchQuery()
-            .equals(other.getSearchQuery())) return false;
+                .equals(other.getSearchQuery())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -247,117 +245,134 @@ public final class SearchModel {
     }
 
     public static model.proto.SearchModel.Request parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Request parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Request parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+              .parseWithIOException(PARSER, input);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+              .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Request parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+              .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static model.proto.SearchModel.Request parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+              .parseWithIOException(PARSER, input);
     }
+
     public static model.proto.SearchModel.Request parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+              .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(model.proto.SearchModel.Request prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+              ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+
     /**
      * <pre>
      * request from front end to search coordinator
      * </pre>
-     *
+     * <p>
      * Protobuf type {@code distributed.search.Request}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:distributed.search.Request)
-        model.proto.SearchModel.RequestOrBuilder {
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:distributed.search.Request)
+            model.proto.SearchModel.RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      getDescriptor() {
         return model.proto.SearchModel.internal_static_distributed_search_Request_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
+      internalGetFieldAccessorTable() {
         return model.proto.SearchModel.internal_static_distributed_search_Request_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                model.proto.SearchModel.Request.class, model.proto.SearchModel.Request.Builder.class);
+                .ensureFieldAccessorsInitialized(
+                        model.proto.SearchModel.Request.class, model.proto.SearchModel.Request.Builder.class);
       }
 
       // Construct using model.proto.SearchModel.Request.newBuilder()
@@ -366,15 +381,17 @@ public final class SearchModel {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
         }
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -385,7 +402,7 @@ public final class SearchModel {
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      getDescriptorForType() {
         return model.proto.SearchModel.internal_static_distributed_search_Request_descriptor;
       }
 
@@ -421,38 +438,44 @@ public final class SearchModel {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
       public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
       public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof model.proto.SearchModel.Request) {
-          return mergeFrom((model.proto.SearchModel.Request)other);
+          return mergeFrom((model.proto.SearchModel.Request) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -481,9 +504,9 @@ public final class SearchModel {
 
       @java.lang.Override
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         model.proto.SearchModel.Request parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
@@ -497,25 +520,26 @@ public final class SearchModel {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.lang.Object searchQuery_ = "";
+
       /**
        * <code>required string search_query = 1;</code>
-       * @return Whether the searchQuery field is set.
        */
       public boolean hasSearchQuery() {
         return ((bitField0_ & 0x00000001) != 0);
       }
+
       /**
        * <code>required string search_query = 1;</code>
-       * @return The searchQuery.
        */
       public java.lang.String getSearchQuery() {
         java.lang.Object ref = searchQuery_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+                  (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             searchQuery_ = s;
@@ -525,41 +549,40 @@ public final class SearchModel {
           return (java.lang.String) ref;
         }
       }
+
       /**
        * <code>required string search_query = 1;</code>
-       * @return The bytes for searchQuery.
        */
       public com.google.protobuf.ByteString
-          getSearchQueryBytes() {
+      getSearchQueryBytes() {
         java.lang.Object ref = searchQuery_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                          (java.lang.String) ref);
           searchQuery_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
        * <code>required string search_query = 1;</code>
-       * @param value The searchQuery to set.
-       * @return This builder for chaining.
        */
       public Builder setSearchQuery(
-          java.lang.String value) {
+              java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         searchQuery_ = value;
         onChanged();
         return this;
       }
+
       /**
        * <code>required string search_query = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearSearchQuery() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -567,30 +590,30 @@ public final class SearchModel {
         onChanged();
         return this;
       }
+
       /**
        * <code>required string search_query = 1;</code>
-       * @param value The bytes for searchQuery to set.
-       * @return This builder for chaining.
        */
       public Builder setSearchQueryBytes(
-          com.google.protobuf.ByteString value) {
+              com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         searchQuery_ = value;
         onChanged();
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
       public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
       }
 
@@ -600,6 +623,7 @@ public final class SearchModel {
 
     // @@protoc_insertion_point(class_scope:distributed.search.Request)
     private static final model.proto.SearchModel.Request DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new model.proto.SearchModel.Request();
     }
@@ -608,13 +632,14 @@ public final class SearchModel {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Request>
-        PARSER = new com.google.protobuf.AbstractParser<Request>() {
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<Request>
+            PARSER = new com.google.protobuf.AbstractParser<Request>() {
       @java.lang.Override
       public Request parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return new Request(input, extensionRegistry);
       }
     };
@@ -636,58 +661,58 @@ public final class SearchModel {
   }
 
   public interface ResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:distributed.search.Response)
-      com.google.protobuf.MessageOrBuilder {
+          // @@protoc_insertion_point(interface_extends:distributed.search.Response)
+          com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    java.util.List<model.proto.SearchModel.Response.DocumentStats> 
-        getRelevantDocumentsList();
+    java.util.List<model.proto.SearchModel.Response.DocumentStats>
+    getRelevantDocumentsList();
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
     model.proto.SearchModel.Response.DocumentStats getRelevantDocuments(int index);
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
     int getRelevantDocumentsCount();
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    java.util.List<? extends model.proto.SearchModel.Response.DocumentStatsOrBuilder> 
-        getRelevantDocumentsOrBuilderList();
+    java.util.List<? extends model.proto.SearchModel.Response.DocumentStatsOrBuilder>
+    getRelevantDocumentsOrBuilderList();
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
     model.proto.SearchModel.Response.DocumentStatsOrBuilder getRelevantDocumentsOrBuilder(
-        int index);
+            int index);
   }
+
   /**
    * <pre>
    * response from search coordinator to frontend
    * </pre>
-   *
+   * <p>
    * Protobuf type {@code distributed.search.Response}
    */
   public static final class Response extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:distributed.search.Response)
-      ResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:distributed.search.Response)
+          ResponseOrBuilder {
+    private static final long serialVersionUID = 0L;
+
     // Use Response.newBuilder() to construct.
     private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private Response() {
       relevantDocuments_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Response();
     }
 
     @java.lang.Override
@@ -695,17 +720,18 @@ public final class SearchModel {
     getUnknownFields() {
       return this.unknownFields;
     }
+
     private Response(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+              com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -720,12 +746,12 @@ public final class SearchModel {
                 mutable_bitField0_ |= 0x00000001;
               }
               relevantDocuments_.add(
-                  input.readMessage(model.proto.SearchModel.Response.DocumentStats.PARSER, extensionRegistry));
+                      input.readMessage(model.proto.SearchModel.Response.DocumentStats.PARSER, extensionRegistry));
               break;
             }
             default: {
               if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
+                      input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -736,7 +762,7 @@ public final class SearchModel {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+                e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           relevantDocuments_ = java.util.Collections.unmodifiableList(relevantDocuments_);
@@ -745,101 +771,94 @@ public final class SearchModel {
         makeExtensionsImmutable();
       }
     }
+
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
+    getDescriptor() {
       return model.proto.SearchModel.internal_static_distributed_search_Response_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
+    internalGetFieldAccessorTable() {
       return model.proto.SearchModel.internal_static_distributed_search_Response_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              model.proto.SearchModel.Response.class, model.proto.SearchModel.Response.Builder.class);
+              .ensureFieldAccessorsInitialized(
+                      model.proto.SearchModel.Response.class, model.proto.SearchModel.Response.Builder.class);
     }
 
     public interface DocumentStatsOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:distributed.search.Response.DocumentStats)
-        com.google.protobuf.MessageOrBuilder {
+            // @@protoc_insertion_point(interface_extends:distributed.search.Response.DocumentStats)
+            com.google.protobuf.MessageOrBuilder {
 
       /**
        * <code>required string document_name = 1;</code>
-       * @return Whether the documentName field is set.
        */
       boolean hasDocumentName();
+
       /**
        * <code>required string document_name = 1;</code>
-       * @return The documentName.
        */
       java.lang.String getDocumentName();
+
       /**
        * <code>required string document_name = 1;</code>
-       * @return The bytes for documentName.
        */
       com.google.protobuf.ByteString
-          getDocumentNameBytes();
+      getDocumentNameBytes();
 
       /**
        * <code>optional double score = 2;</code>
-       * @return Whether the score field is set.
        */
       boolean hasScore();
+
       /**
        * <code>optional double score = 2;</code>
-       * @return The score.
        */
       double getScore();
 
       /**
        * <code>optional int64 document_size = 3;</code>
-       * @return Whether the documentSize field is set.
        */
       boolean hasDocumentSize();
+
       /**
        * <code>optional int64 document_size = 3;</code>
-       * @return The documentSize.
        */
       long getDocumentSize();
 
       /**
        * <code>optional string author = 4;</code>
-       * @return Whether the author field is set.
        */
       boolean hasAuthor();
+
       /**
        * <code>optional string author = 4;</code>
-       * @return The author.
        */
       java.lang.String getAuthor();
+
       /**
        * <code>optional string author = 4;</code>
-       * @return The bytes for author.
        */
       com.google.protobuf.ByteString
-          getAuthorBytes();
+      getAuthorBytes();
     }
+
     /**
      * Protobuf type {@code distributed.search.Response.DocumentStats}
      */
     public static final class DocumentStats extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:distributed.search.Response.DocumentStats)
-        DocumentStatsOrBuilder {
-    private static final long serialVersionUID = 0L;
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:distributed.search.Response.DocumentStats)
+            DocumentStatsOrBuilder {
+      private static final long serialVersionUID = 0L;
+
       // Use DocumentStats.newBuilder() to construct.
       private DocumentStats(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
       }
+
       private DocumentStats() {
         documentName_ = "";
         author_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new DocumentStats();
       }
 
       @java.lang.Override
@@ -847,17 +866,18 @@ public final class SearchModel {
       getUnknownFields() {
         return this.unknownFields;
       }
+
       private DocumentStats(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
+                com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -890,7 +910,7 @@ public final class SearchModel {
               }
               default: {
                 if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
+                        input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
                 break;
@@ -901,48 +921,47 @@ public final class SearchModel {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
+                  e).setUnfinishedMessage(this);
         } finally {
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
+
       public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      getDescriptor() {
         return model.proto.SearchModel.internal_static_distributed_search_Response_DocumentStats_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
+      internalGetFieldAccessorTable() {
         return model.proto.SearchModel.internal_static_distributed_search_Response_DocumentStats_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                model.proto.SearchModel.Response.DocumentStats.class, model.proto.SearchModel.Response.DocumentStats.Builder.class);
+                .ensureFieldAccessorsInitialized(
+                        model.proto.SearchModel.Response.DocumentStats.class, model.proto.SearchModel.Response.DocumentStats.Builder.class);
       }
 
       private int bitField0_;
       public static final int DOCUMENT_NAME_FIELD_NUMBER = 1;
       private volatile java.lang.Object documentName_;
+
       /**
        * <code>required string document_name = 1;</code>
-       * @return Whether the documentName field is set.
        */
-      @java.lang.Override
       public boolean hasDocumentName() {
         return ((bitField0_ & 0x00000001) != 0);
       }
+
       /**
        * <code>required string document_name = 1;</code>
-       * @return The documentName.
        */
-      @java.lang.Override
       public java.lang.String getDocumentName() {
         java.lang.Object ref = documentName_;
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             documentName_ = s;
@@ -950,18 +969,17 @@ public final class SearchModel {
           return s;
         }
       }
+
       /**
        * <code>required string document_name = 1;</code>
-       * @return The bytes for documentName.
        */
-      @java.lang.Override
       public com.google.protobuf.ByteString
-          getDocumentNameBytes() {
+      getDocumentNameBytes() {
         java.lang.Object ref = documentName_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                          (java.lang.String) ref);
           documentName_ = b;
           return b;
         } else {
@@ -971,64 +989,58 @@ public final class SearchModel {
 
       public static final int SCORE_FIELD_NUMBER = 2;
       private double score_;
+
       /**
        * <code>optional double score = 2;</code>
-       * @return Whether the score field is set.
        */
-      @java.lang.Override
       public boolean hasScore() {
         return ((bitField0_ & 0x00000002) != 0);
       }
+
       /**
        * <code>optional double score = 2;</code>
-       * @return The score.
        */
-      @java.lang.Override
       public double getScore() {
         return score_;
       }
 
       public static final int DOCUMENT_SIZE_FIELD_NUMBER = 3;
       private long documentSize_;
+
       /**
        * <code>optional int64 document_size = 3;</code>
-       * @return Whether the documentSize field is set.
        */
-      @java.lang.Override
       public boolean hasDocumentSize() {
         return ((bitField0_ & 0x00000004) != 0);
       }
+
       /**
        * <code>optional int64 document_size = 3;</code>
-       * @return The documentSize.
        */
-      @java.lang.Override
       public long getDocumentSize() {
         return documentSize_;
       }
 
       public static final int AUTHOR_FIELD_NUMBER = 4;
       private volatile java.lang.Object author_;
+
       /**
        * <code>optional string author = 4;</code>
-       * @return Whether the author field is set.
        */
-      @java.lang.Override
       public boolean hasAuthor() {
         return ((bitField0_ & 0x00000008) != 0);
       }
+
       /**
        * <code>optional string author = 4;</code>
-       * @return The author.
        */
-      @java.lang.Override
       public java.lang.String getAuthor() {
         java.lang.Object ref = author_;
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             author_ = s;
@@ -1036,18 +1048,17 @@ public final class SearchModel {
           return s;
         }
       }
+
       /**
        * <code>optional string author = 4;</code>
-       * @return The bytes for author.
        */
-      @java.lang.Override
       public com.google.protobuf.ByteString
-          getAuthorBytes() {
+      getAuthorBytes() {
         java.lang.Object ref = author_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                          (java.lang.String) ref);
           author_ = b;
           return b;
         } else {
@@ -1056,6 +1067,7 @@ public final class SearchModel {
       }
 
       private byte memoizedIsInitialized = -1;
+
       @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -1072,7 +1084,7 @@ public final class SearchModel {
 
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
+              throws java.io.IOException {
         if (((bitField0_ & 0x00000001) != 0)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, documentName_);
         }
@@ -1099,11 +1111,11 @@ public final class SearchModel {
         }
         if (((bitField0_ & 0x00000002) != 0)) {
           size += com.google.protobuf.CodedOutputStream
-            .computeDoubleSize(2, score_);
+                  .computeDoubleSize(2, score_);
         }
         if (((bitField0_ & 0x00000004) != 0)) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(3, documentSize_);
+                  .computeInt64Size(3, documentSize_);
         }
         if (((bitField0_ & 0x00000008) != 0)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, author_);
@@ -1116,7 +1128,7 @@ public final class SearchModel {
       @java.lang.Override
       public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
-         return true;
+          return true;
         }
         if (!(obj instanceof model.proto.SearchModel.Response.DocumentStats)) {
           return super.equals(obj);
@@ -1126,23 +1138,23 @@ public final class SearchModel {
         if (hasDocumentName() != other.hasDocumentName()) return false;
         if (hasDocumentName()) {
           if (!getDocumentName()
-              .equals(other.getDocumentName())) return false;
+                  .equals(other.getDocumentName())) return false;
         }
         if (hasScore() != other.hasScore()) return false;
         if (hasScore()) {
           if (java.lang.Double.doubleToLongBits(getScore())
-              != java.lang.Double.doubleToLongBits(
+                  != java.lang.Double.doubleToLongBits(
                   other.getScore())) return false;
         }
         if (hasDocumentSize() != other.hasDocumentSize()) return false;
         if (hasDocumentSize()) {
           if (getDocumentSize()
-              != other.getDocumentSize()) return false;
+                  != other.getDocumentSize()) return false;
         }
         if (hasAuthor() != other.hasAuthor()) return false;
         if (hasAuthor()) {
           if (!getAuthor()
-              .equals(other.getAuthor())) return false;
+                  .equals(other.getAuthor())) return false;
         }
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
@@ -1162,12 +1174,12 @@ public final class SearchModel {
         if (hasScore()) {
           hash = (37 * hash) + SCORE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              java.lang.Double.doubleToLongBits(getScore()));
+                  java.lang.Double.doubleToLongBits(getScore()));
         }
         if (hasDocumentSize()) {
           hash = (37 * hash) + DOCUMENT_SIZE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              getDocumentSize());
+                  getDocumentSize());
         }
         if (hasAuthor()) {
           hash = (37 * hash) + AUTHOR_FIELD_NUMBER;
@@ -1179,113 +1191,130 @@ public final class SearchModel {
       }
 
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              java.nio.ByteBuffer data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              java.nio.ByteBuffer data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              com.google.protobuf.ByteString data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              com.google.protobuf.ByteString data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              byte[] data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
+                .parseWithIOException(PARSER, input);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
+                .parseWithIOException(PARSER, input, extensionRegistry);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
+                .parseDelimitedWithIOException(PARSER, input);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
+              com.google.protobuf.CodedInputStream input)
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
+                .parseWithIOException(PARSER, input);
       }
+
       public static model.proto.SearchModel.Response.DocumentStats parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
+                .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
       @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
+      public Builder newBuilderForType() {
+        return newBuilder();
+      }
+
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
+
       public static Builder newBuilder(model.proto.SearchModel.Response.DocumentStats prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
+
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+                ? new Builder() : new Builder().mergeFrom(this);
       }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
+
       /**
        * Protobuf type {@code distributed.search.Response.DocumentStats}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:distributed.search.Response.DocumentStats)
-          model.proto.SearchModel.Response.DocumentStatsOrBuilder {
+              com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+              // @@protoc_insertion_point(builder_implements:distributed.search.Response.DocumentStats)
+              model.proto.SearchModel.Response.DocumentStatsOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
+        getDescriptor() {
           return model.proto.SearchModel.internal_static_distributed_search_Response_DocumentStats_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
           return model.proto.SearchModel.internal_static_distributed_search_Response_DocumentStats_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  model.proto.SearchModel.Response.DocumentStats.class, model.proto.SearchModel.Response.DocumentStats.Builder.class);
+                  .ensureFieldAccessorsInitialized(
+                          model.proto.SearchModel.Response.DocumentStats.class, model.proto.SearchModel.Response.DocumentStats.Builder.class);
         }
 
         // Construct using model.proto.SearchModel.Response.DocumentStats.newBuilder()
@@ -1294,15 +1323,17 @@ public final class SearchModel {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
+
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessageV3
                   .alwaysUseFieldBuilders) {
           }
         }
+
         @java.lang.Override
         public Builder clear() {
           super.clear();
@@ -1319,7 +1350,7 @@ public final class SearchModel {
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
+        getDescriptorForType() {
           return model.proto.SearchModel.internal_static_distributed_search_Response_DocumentStats_descriptor;
         }
 
@@ -1367,38 +1398,44 @@ public final class SearchModel {
         public Builder clone() {
           return super.clone();
         }
+
         @java.lang.Override
         public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
           return super.setField(field, value);
         }
+
         @java.lang.Override
         public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
           return super.clearField(field);
         }
+
         @java.lang.Override
         public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
           return super.clearOneof(oneof);
         }
+
         @java.lang.Override
         public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
           return super.setRepeatedField(field, index, value);
         }
+
         @java.lang.Override
         public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
           return super.addRepeatedField(field, value);
         }
+
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof model.proto.SearchModel.Response.DocumentStats) {
-            return mergeFrom((model.proto.SearchModel.Response.DocumentStats)other);
+            return mergeFrom((model.proto.SearchModel.Response.DocumentStats) other);
           } else {
             super.mergeFrom(other);
             return this;
@@ -1438,9 +1475,9 @@ public final class SearchModel {
 
         @java.lang.Override
         public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
           model.proto.SearchModel.Response.DocumentStats parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
@@ -1454,25 +1491,26 @@ public final class SearchModel {
           }
           return this;
         }
+
         private int bitField0_;
 
         private java.lang.Object documentName_ = "";
+
         /**
          * <code>required string document_name = 1;</code>
-         * @return Whether the documentName field is set.
          */
         public boolean hasDocumentName() {
           return ((bitField0_ & 0x00000001) != 0);
         }
+
         /**
          * <code>required string document_name = 1;</code>
-         * @return The documentName.
          */
         public java.lang.String getDocumentName() {
           java.lang.Object ref = documentName_;
           if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
+                    (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
               documentName_ = s;
@@ -1482,41 +1520,40 @@ public final class SearchModel {
             return (java.lang.String) ref;
           }
         }
+
         /**
          * <code>required string document_name = 1;</code>
-         * @return The bytes for documentName.
          */
         public com.google.protobuf.ByteString
-            getDocumentNameBytes() {
+        getDocumentNameBytes() {
           java.lang.Object ref = documentName_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
             documentName_ = b;
             return b;
           } else {
             return (com.google.protobuf.ByteString) ref;
           }
         }
+
         /**
          * <code>required string document_name = 1;</code>
-         * @param value The documentName to set.
-         * @return This builder for chaining.
          */
         public Builder setDocumentName(
-            java.lang.String value) {
+                java.lang.String value) {
           if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+            throw new NullPointerException();
+          }
+          bitField0_ |= 0x00000001;
           documentName_ = value;
           onChanged();
           return this;
         }
+
         /**
          * <code>required string document_name = 1;</code>
-         * @return This builder for chaining.
          */
         public Builder clearDocumentName() {
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -1524,43 +1561,39 @@ public final class SearchModel {
           onChanged();
           return this;
         }
+
         /**
          * <code>required string document_name = 1;</code>
-         * @param value The bytes for documentName to set.
-         * @return This builder for chaining.
          */
         public Builder setDocumentNameBytes(
-            com.google.protobuf.ByteString value) {
+                com.google.protobuf.ByteString value) {
           if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+            throw new NullPointerException();
+          }
+          bitField0_ |= 0x00000001;
           documentName_ = value;
           onChanged();
           return this;
         }
 
-        private double score_ ;
+        private double score_;
+
         /**
          * <code>optional double score = 2;</code>
-         * @return Whether the score field is set.
          */
-        @java.lang.Override
         public boolean hasScore() {
           return ((bitField0_ & 0x00000002) != 0);
         }
+
         /**
          * <code>optional double score = 2;</code>
-         * @return The score.
          */
-        @java.lang.Override
         public double getScore() {
           return score_;
         }
+
         /**
          * <code>optional double score = 2;</code>
-         * @param value The score to set.
-         * @return This builder for chaining.
          */
         public Builder setScore(double value) {
           bitField0_ |= 0x00000002;
@@ -1568,9 +1601,9 @@ public final class SearchModel {
           onChanged();
           return this;
         }
+
         /**
          * <code>optional double score = 2;</code>
-         * @return This builder for chaining.
          */
         public Builder clearScore() {
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -1579,27 +1612,24 @@ public final class SearchModel {
           return this;
         }
 
-        private long documentSize_ ;
+        private long documentSize_;
+
         /**
          * <code>optional int64 document_size = 3;</code>
-         * @return Whether the documentSize field is set.
          */
-        @java.lang.Override
         public boolean hasDocumentSize() {
           return ((bitField0_ & 0x00000004) != 0);
         }
+
         /**
          * <code>optional int64 document_size = 3;</code>
-         * @return The documentSize.
          */
-        @java.lang.Override
         public long getDocumentSize() {
           return documentSize_;
         }
+
         /**
          * <code>optional int64 document_size = 3;</code>
-         * @param value The documentSize to set.
-         * @return This builder for chaining.
          */
         public Builder setDocumentSize(long value) {
           bitField0_ |= 0x00000004;
@@ -1607,9 +1637,9 @@ public final class SearchModel {
           onChanged();
           return this;
         }
+
         /**
          * <code>optional int64 document_size = 3;</code>
-         * @return This builder for chaining.
          */
         public Builder clearDocumentSize() {
           bitField0_ = (bitField0_ & ~0x00000004);
@@ -1619,22 +1649,22 @@ public final class SearchModel {
         }
 
         private java.lang.Object author_ = "";
+
         /**
          * <code>optional string author = 4;</code>
-         * @return Whether the author field is set.
          */
         public boolean hasAuthor() {
           return ((bitField0_ & 0x00000008) != 0);
         }
+
         /**
          * <code>optional string author = 4;</code>
-         * @return The author.
          */
         public java.lang.String getAuthor() {
           java.lang.Object ref = author_;
           if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
+                    (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
               author_ = s;
@@ -1644,41 +1674,40 @@ public final class SearchModel {
             return (java.lang.String) ref;
           }
         }
+
         /**
          * <code>optional string author = 4;</code>
-         * @return The bytes for author.
          */
         public com.google.protobuf.ByteString
-            getAuthorBytes() {
+        getAuthorBytes() {
           java.lang.Object ref = author_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
             author_ = b;
             return b;
           } else {
             return (com.google.protobuf.ByteString) ref;
           }
         }
+
         /**
          * <code>optional string author = 4;</code>
-         * @param value The author to set.
-         * @return This builder for chaining.
          */
         public Builder setAuthor(
-            java.lang.String value) {
+                java.lang.String value) {
           if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+            throw new NullPointerException();
+          }
+          bitField0_ |= 0x00000008;
           author_ = value;
           onChanged();
           return this;
         }
+
         /**
          * <code>optional string author = 4;</code>
-         * @return This builder for chaining.
          */
         public Builder clearAuthor() {
           bitField0_ = (bitField0_ & ~0x00000008);
@@ -1686,30 +1715,30 @@ public final class SearchModel {
           onChanged();
           return this;
         }
+
         /**
          * <code>optional string author = 4;</code>
-         * @param value The bytes for author to set.
-         * @return This builder for chaining.
          */
         public Builder setAuthorBytes(
-            com.google.protobuf.ByteString value) {
+                com.google.protobuf.ByteString value) {
           if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+            throw new NullPointerException();
+          }
+          bitField0_ |= 0x00000008;
           author_ = value;
           onChanged();
           return this;
         }
+
         @java.lang.Override
         public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
           return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
         public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
           return super.mergeUnknownFields(unknownFields);
         }
 
@@ -1719,6 +1748,7 @@ public final class SearchModel {
 
       // @@protoc_insertion_point(class_scope:distributed.search.Response.DocumentStats)
       private static final model.proto.SearchModel.Response.DocumentStats DEFAULT_INSTANCE;
+
       static {
         DEFAULT_INSTANCE = new model.proto.SearchModel.Response.DocumentStats();
       }
@@ -1727,13 +1757,14 @@ public final class SearchModel {
         return DEFAULT_INSTANCE;
       }
 
-      @java.lang.Deprecated public static final com.google.protobuf.Parser<DocumentStats>
-          PARSER = new com.google.protobuf.AbstractParser<DocumentStats>() {
+      @java.lang.Deprecated
+      public static final com.google.protobuf.Parser<DocumentStats>
+              PARSER = new com.google.protobuf.AbstractParser<DocumentStats>() {
         @java.lang.Override
         public DocumentStats parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
           return new DocumentStats(input, extensionRegistry);
         }
       };
@@ -1756,45 +1787,46 @@ public final class SearchModel {
 
     public static final int RELEVANT_DOCUMENTS_FIELD_NUMBER = 1;
     private java.util.List<model.proto.SearchModel.Response.DocumentStats> relevantDocuments_;
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    @java.lang.Override
     public java.util.List<model.proto.SearchModel.Response.DocumentStats> getRelevantDocumentsList() {
       return relevantDocuments_;
     }
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    @java.lang.Override
-    public java.util.List<? extends model.proto.SearchModel.Response.DocumentStatsOrBuilder> 
-        getRelevantDocumentsOrBuilderList() {
+    public java.util.List<? extends model.proto.SearchModel.Response.DocumentStatsOrBuilder>
+    getRelevantDocumentsOrBuilderList() {
       return relevantDocuments_;
     }
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    @java.lang.Override
     public int getRelevantDocumentsCount() {
       return relevantDocuments_.size();
     }
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    @java.lang.Override
     public model.proto.SearchModel.Response.DocumentStats getRelevantDocuments(int index) {
       return relevantDocuments_.get(index);
     }
+
     /**
      * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
      */
-    @java.lang.Override
     public model.proto.SearchModel.Response.DocumentStatsOrBuilder getRelevantDocumentsOrBuilder(
-        int index) {
+            int index) {
       return relevantDocuments_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1813,7 +1845,7 @@ public final class SearchModel {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+            throws java.io.IOException {
       for (int i = 0; i < relevantDocuments_.size(); i++) {
         output.writeMessage(1, relevantDocuments_.get(i));
       }
@@ -1828,7 +1860,7 @@ public final class SearchModel {
       size = 0;
       for (int i = 0; i < relevantDocuments_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, relevantDocuments_.get(i));
+                .computeMessageSize(1, relevantDocuments_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1838,7 +1870,7 @@ public final class SearchModel {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof model.proto.SearchModel.Response)) {
         return super.equals(obj);
@@ -1846,7 +1878,7 @@ public final class SearchModel {
       model.proto.SearchModel.Response other = (model.proto.SearchModel.Response) obj;
 
       if (!getRelevantDocumentsList()
-          .equals(other.getRelevantDocumentsList())) return false;
+              .equals(other.getRelevantDocumentsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1868,117 +1900,134 @@ public final class SearchModel {
     }
 
     public static model.proto.SearchModel.Response parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Response parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Response parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+              .parseWithIOException(PARSER, input);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+              .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Response parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+              .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static model.proto.SearchModel.Response parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+              .parseWithIOException(PARSER, input);
     }
+
     public static model.proto.SearchModel.Response parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+              .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(model.proto.SearchModel.Response prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+              ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+
     /**
      * <pre>
      * response from search coordinator to frontend
      * </pre>
-     *
+     * <p>
      * Protobuf type {@code distributed.search.Response}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:distributed.search.Response)
-        model.proto.SearchModel.ResponseOrBuilder {
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:distributed.search.Response)
+            model.proto.SearchModel.ResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      getDescriptor() {
         return model.proto.SearchModel.internal_static_distributed_search_Response_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
+      internalGetFieldAccessorTable() {
         return model.proto.SearchModel.internal_static_distributed_search_Response_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                model.proto.SearchModel.Response.class, model.proto.SearchModel.Response.Builder.class);
+                .ensureFieldAccessorsInitialized(
+                        model.proto.SearchModel.Response.class, model.proto.SearchModel.Response.Builder.class);
       }
 
       // Construct using model.proto.SearchModel.Response.newBuilder()
@@ -1987,16 +2036,18 @@ public final class SearchModel {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getRelevantDocumentsFieldBuilder();
         }
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -2011,7 +2062,7 @@ public final class SearchModel {
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      getDescriptorForType() {
         return model.proto.SearchModel.internal_static_distributed_search_Response_descriptor;
       }
 
@@ -2050,38 +2101,44 @@ public final class SearchModel {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
       public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
       public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof model.proto.SearchModel.Response) {
-          return mergeFrom((model.proto.SearchModel.Response)other);
+          return mergeFrom((model.proto.SearchModel.Response) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -2108,9 +2165,9 @@ public final class SearchModel {
               relevantDocumentsBuilder_ = null;
               relevantDocuments_ = other.relevantDocuments_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              relevantDocumentsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRelevantDocumentsFieldBuilder() : null;
+              relevantDocumentsBuilder_ =
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                              getRelevantDocumentsFieldBuilder() : null;
             } else {
               relevantDocumentsBuilder_.addAllMessages(other.relevantDocuments_);
             }
@@ -2133,9 +2190,9 @@ public final class SearchModel {
 
       @java.lang.Override
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         model.proto.SearchModel.Response parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
@@ -2149,19 +2206,21 @@ public final class SearchModel {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.util.List<model.proto.SearchModel.Response.DocumentStats> relevantDocuments_ =
-        java.util.Collections.emptyList();
+              java.util.Collections.emptyList();
+
       private void ensureRelevantDocumentsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
           relevantDocuments_ = new java.util.ArrayList<model.proto.SearchModel.Response.DocumentStats>(relevantDocuments_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          model.proto.SearchModel.Response.DocumentStats, model.proto.SearchModel.Response.DocumentStats.Builder, model.proto.SearchModel.Response.DocumentStatsOrBuilder> relevantDocumentsBuilder_;
+              model.proto.SearchModel.Response.DocumentStats, model.proto.SearchModel.Response.DocumentStats.Builder, model.proto.SearchModel.Response.DocumentStatsOrBuilder> relevantDocumentsBuilder_;
 
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
@@ -2173,6 +2232,7 @@ public final class SearchModel {
           return relevantDocumentsBuilder_.getMessageList();
         }
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
@@ -2183,6 +2243,7 @@ public final class SearchModel {
           return relevantDocumentsBuilder_.getCount();
         }
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
@@ -2193,11 +2254,12 @@ public final class SearchModel {
           return relevantDocumentsBuilder_.getMessage(index);
         }
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public Builder setRelevantDocuments(
-          int index, model.proto.SearchModel.Response.DocumentStats value) {
+              int index, model.proto.SearchModel.Response.DocumentStats value) {
         if (relevantDocumentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2210,11 +2272,12 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public Builder setRelevantDocuments(
-          int index, model.proto.SearchModel.Response.DocumentStats.Builder builderForValue) {
+              int index, model.proto.SearchModel.Response.DocumentStats.Builder builderForValue) {
         if (relevantDocumentsBuilder_ == null) {
           ensureRelevantDocumentsIsMutable();
           relevantDocuments_.set(index, builderForValue.build());
@@ -2224,6 +2287,7 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
@@ -2240,11 +2304,12 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public Builder addRelevantDocuments(
-          int index, model.proto.SearchModel.Response.DocumentStats value) {
+              int index, model.proto.SearchModel.Response.DocumentStats value) {
         if (relevantDocumentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2257,11 +2322,12 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public Builder addRelevantDocuments(
-          model.proto.SearchModel.Response.DocumentStats.Builder builderForValue) {
+              model.proto.SearchModel.Response.DocumentStats.Builder builderForValue) {
         if (relevantDocumentsBuilder_ == null) {
           ensureRelevantDocumentsIsMutable();
           relevantDocuments_.add(builderForValue.build());
@@ -2271,11 +2337,12 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public Builder addRelevantDocuments(
-          int index, model.proto.SearchModel.Response.DocumentStats.Builder builderForValue) {
+              int index, model.proto.SearchModel.Response.DocumentStats.Builder builderForValue) {
         if (relevantDocumentsBuilder_ == null) {
           ensureRelevantDocumentsIsMutable();
           relevantDocuments_.add(index, builderForValue.build());
@@ -2285,21 +2352,23 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public Builder addAllRelevantDocuments(
-          java.lang.Iterable<? extends model.proto.SearchModel.Response.DocumentStats> values) {
+              java.lang.Iterable<? extends model.proto.SearchModel.Response.DocumentStats> values) {
         if (relevantDocumentsBuilder_ == null) {
           ensureRelevantDocumentsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, relevantDocuments_);
+                  values, relevantDocuments_);
           onChanged();
         } else {
           relevantDocumentsBuilder_.addAllMessages(values);
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
@@ -2313,6 +2382,7 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
@@ -2326,62 +2396,70 @@ public final class SearchModel {
         }
         return this;
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public model.proto.SearchModel.Response.DocumentStats.Builder getRelevantDocumentsBuilder(
-          int index) {
+              int index) {
         return getRelevantDocumentsFieldBuilder().getBuilder(index);
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public model.proto.SearchModel.Response.DocumentStatsOrBuilder getRelevantDocumentsOrBuilder(
-          int index) {
+              int index) {
         if (relevantDocumentsBuilder_ == null) {
-          return relevantDocuments_.get(index);  } else {
+          return relevantDocuments_.get(index);
+        } else {
           return relevantDocumentsBuilder_.getMessageOrBuilder(index);
         }
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
-      public java.util.List<? extends model.proto.SearchModel.Response.DocumentStatsOrBuilder> 
-           getRelevantDocumentsOrBuilderList() {
+      public java.util.List<? extends model.proto.SearchModel.Response.DocumentStatsOrBuilder>
+      getRelevantDocumentsOrBuilderList() {
         if (relevantDocumentsBuilder_ != null) {
           return relevantDocumentsBuilder_.getMessageOrBuilderList();
         } else {
           return java.util.Collections.unmodifiableList(relevantDocuments_);
         }
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public model.proto.SearchModel.Response.DocumentStats.Builder addRelevantDocumentsBuilder() {
         return getRelevantDocumentsFieldBuilder().addBuilder(
-            model.proto.SearchModel.Response.DocumentStats.getDefaultInstance());
+                model.proto.SearchModel.Response.DocumentStats.getDefaultInstance());
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
       public model.proto.SearchModel.Response.DocumentStats.Builder addRelevantDocumentsBuilder(
-          int index) {
+              int index) {
         return getRelevantDocumentsFieldBuilder().addBuilder(
-            index, model.proto.SearchModel.Response.DocumentStats.getDefaultInstance());
+                index, model.proto.SearchModel.Response.DocumentStats.getDefaultInstance());
       }
+
       /**
        * <code>repeated .distributed.search.Response.DocumentStats relevant_documents = 1;</code>
        */
-      public java.util.List<model.proto.SearchModel.Response.DocumentStats.Builder> 
-           getRelevantDocumentsBuilderList() {
+      public java.util.List<model.proto.SearchModel.Response.DocumentStats.Builder>
+      getRelevantDocumentsBuilderList() {
         return getRelevantDocumentsFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          model.proto.SearchModel.Response.DocumentStats, model.proto.SearchModel.Response.DocumentStats.Builder, model.proto.SearchModel.Response.DocumentStatsOrBuilder> 
-          getRelevantDocumentsFieldBuilder() {
+              model.proto.SearchModel.Response.DocumentStats, model.proto.SearchModel.Response.DocumentStats.Builder, model.proto.SearchModel.Response.DocumentStatsOrBuilder>
+      getRelevantDocumentsFieldBuilder() {
         if (relevantDocumentsBuilder_ == null) {
           relevantDocumentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              model.proto.SearchModel.Response.DocumentStats, model.proto.SearchModel.Response.DocumentStats.Builder, model.proto.SearchModel.Response.DocumentStatsOrBuilder>(
+                  model.proto.SearchModel.Response.DocumentStats, model.proto.SearchModel.Response.DocumentStats.Builder, model.proto.SearchModel.Response.DocumentStatsOrBuilder>(
                   relevantDocuments_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -2390,15 +2468,16 @@ public final class SearchModel {
         }
         return relevantDocumentsBuilder_;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
       public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
       }
 
@@ -2408,6 +2487,7 @@ public final class SearchModel {
 
     // @@protoc_insertion_point(class_scope:distributed.search.Response)
     private static final model.proto.SearchModel.Response DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new model.proto.SearchModel.Response();
     }
@@ -2416,13 +2496,14 @@ public final class SearchModel {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Response>
-        PARSER = new com.google.protobuf.AbstractParser<Response>() {
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<Response>
+            PARSER = new com.google.protobuf.AbstractParser<Response>() {
       @java.lang.Override
       public Response parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return new Response(input, extensionRegistry);
       }
     };
@@ -2444,60 +2525,70 @@ public final class SearchModel {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_distributed_search_Request_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_distributed_search_Request_fieldAccessorTable;
+          internal_static_distributed_search_Request_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_distributed_search_Request_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_distributed_search_Response_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_distributed_search_Response_fieldAccessorTable;
+          internal_static_distributed_search_Response_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_distributed_search_Response_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_distributed_search_Response_DocumentStats_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_distributed_search_Response_DocumentStats_fieldAccessorTable;
+          internal_static_distributed_search_Response_DocumentStats_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_distributed_search_Response_DocumentStats_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor
+          descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n5src/main/java/model/proto/search_clust" +
-      "er_protos.proto\022\022distributed.search\"\037\n\007R" +
-      "equest\022\024\n\014search_query\030\001 \002(\t\"\260\001\n\010Respons" +
-      "e\022F\n\022relevant_documents\030\001 \003(\0132*.distribu" +
-      "ted.search.Response.DocumentStats\032\\\n\rDoc" +
-      "umentStats\022\025\n\rdocument_name\030\001 \002(\t\022\r\n\005sco" +
-      "re\030\002 \001(\001\022\025\n\rdocument_size\030\003 \001(\003\022\016\n\006autho" +
-      "r\030\004 \001(\tB\032\n\013model.protoB\013SearchModel"
+            "\n5src/main/java/model/proto/search_clust" +
+                    "er_protos.proto\022\022distributed.search\"\037\n\007R" +
+                    "equest\022\024\n\014search_query\030\001 \002(\t\"\260\001\n\010Respons" +
+                    "e\022F\n\022relevant_documents\030\001 \003(\0132*.distribu" +
+                    "ted.search.Response.DocumentStats\032\\\n\rDoc" +
+                    "umentStats\022\025\n\rdocument_name\030\001 \002(\t\022\r\n\005sco" +
+                    "re\030\002 \001(\001\022\025\n\rdocument_size\030\003 \001(\003\022\016\n\006autho" +
+                    "r\030\004 \001(\tB\032\n\013model.protoB\013SearchModel"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+            new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+              public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                      com.google.protobuf.Descriptors.FileDescriptor root) {
+                descriptor = root;
+                return null;
+              }
+            };
+    com.google.protobuf.Descriptors.FileDescriptor
+            .internalBuildGeneratedFileFrom(descriptorData,
+                    new com.google.protobuf.Descriptors.FileDescriptor[]{
+                    }, assigner);
     internal_static_distributed_search_Request_descriptor =
-      getDescriptor().getMessageTypes().get(0);
+            getDescriptor().getMessageTypes().get(0);
     internal_static_distributed_search_Request_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_distributed_search_Request_descriptor,
-        new java.lang.String[] { "SearchQuery", });
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_distributed_search_Request_descriptor,
+            new java.lang.String[]{"SearchQuery",});
     internal_static_distributed_search_Response_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+            getDescriptor().getMessageTypes().get(1);
     internal_static_distributed_search_Response_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_distributed_search_Response_descriptor,
-        new java.lang.String[] { "RelevantDocuments", });
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_distributed_search_Response_descriptor,
+            new java.lang.String[]{"RelevantDocuments",});
     internal_static_distributed_search_Response_DocumentStats_descriptor =
-      internal_static_distributed_search_Response_descriptor.getNestedTypes().get(0);
+            internal_static_distributed_search_Response_descriptor.getNestedTypes().get(0);
     internal_static_distributed_search_Response_DocumentStats_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_distributed_search_Response_DocumentStats_descriptor,
-        new java.lang.String[] { "DocumentName", "Score", "DocumentSize", "Author", });
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_distributed_search_Response_DocumentStats_descriptor,
+            new java.lang.String[]{"DocumentName", "Score", "DocumentSize", "Author",});
   }
 
   // @@protoc_insertion_point(outer_class_scope)

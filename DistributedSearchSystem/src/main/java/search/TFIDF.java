@@ -1,10 +1,35 @@
-package utilities;
+/*
+ *  MIT License
+ *
+ *  Copyright (c) 2019 Michael Pogrebinsky - Distributed Systems & Cloud Computing with Java
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ */
+
+package search;
 
 import model.DocumentData;
 
 import java.util.*;
 
 public class TFIDF {
+
     public static double calculateTermFrequency(List<String> words, String term) {
         long count = 0;
         for (String word : words) {
@@ -22,7 +47,7 @@ public class TFIDF {
 
         for (String term : terms) {
             double termFreq = TFIDF.calculateTermFrequency(words, term.toLowerCase());
-            documentData.addToTermToFrequencyMap(term, termFreq);
+            documentData.putTermFrequency(term, termFreq);
         }
         return documentData;
     }
@@ -57,7 +82,7 @@ public class TFIDF {
                                                  Map<String, Double> termToInverseDocumentFrequency) {
         double score = 0;
         for (String term : terms) {
-            double termFrequency = documentData.getFrequencyForTerm(term);
+            double termFrequency = documentData.getFrequency(term);
             double inverseTermFrequency = termToInverseDocumentFrequency.get(term);
             score += termFrequency * inverseTermFrequency;
         }
@@ -68,7 +93,7 @@ public class TFIDF {
         double n = 0;
         for (String document : documentResults.keySet()) {
             DocumentData documentData = documentResults.get(document);
-            double termFrequency = documentData.getFrequencyForTerm(term);
+            double termFrequency = documentData.getFrequency(term);
             if (termFrequency > 0.0) {
                 n++;
             }

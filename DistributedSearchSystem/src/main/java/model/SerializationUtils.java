@@ -22,34 +22,35 @@
  *  SOFTWARE.
  */
 
-package networking;
+package model;
 
-import model.Result;
-import model.SerializationUtils;
+import java.io.*;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
+public class SerializationUtils {
+    public static byte[] serialize(Object object) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutput objectOutput;
+        try {
+            objectOutput = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutput.writeObject(object);
+            objectOutput.flush();
+            return byteArrayOutputStream.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-public class WebClient {
-    private HttpClient client;
-
-    public WebClient() {
-        this.client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_1_1)
-                .build();
+        return new byte[]{};
     }
 
-    public CompletableFuture<Result> sendTask(String url, byte[] requestPayload) {
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofByteArray(requestPayload))
-                .uri(URI.create(url))
-                .build();
-
-        return client.sendAsync(request, HttpResponse.BodyHandlers.ofByteArray())
-                .thenApply(HttpResponse::body)
-                .thenApply(responseBody -> (Result) SerializationUtils.deserialize(responseBody));
+    public static Object deserialize(byte[] data) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+        ObjectInput objectInput = null;
+        try {
+            objectInput = new ObjectInputStream(byteArrayInputStream);
+            return objectInput.readObject();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

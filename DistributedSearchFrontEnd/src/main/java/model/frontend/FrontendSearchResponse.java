@@ -22,34 +22,49 @@
  *  SOFTWARE.
  */
 
-package networking;
+package model.frontend;
 
-import model.Result;
-import model.SerializationUtils;
+import java.util.Collections;
+import java.util.List;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
+public class FrontendSearchResponse {
+    private List<SearchResultInfo> searchResults = Collections.emptyList();
+    private String documentsLocation = "";
 
-public class WebClient {
-    private HttpClient client;
-
-    public WebClient() {
-        this.client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_1_1)
-                .build();
+    public FrontendSearchResponse(List<SearchResultInfo> searchResults, String documentsLocation) {
+        this.searchResults = searchResults;
+        this.documentsLocation = documentsLocation;
     }
 
-    public CompletableFuture<Result> sendTask(String url, byte[] requestPayload) {
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofByteArray(requestPayload))
-                .uri(URI.create(url))
-                .build();
+    public List<SearchResultInfo> getSearchResults() {
+        return searchResults;
+    }
 
-        return client.sendAsync(request, HttpResponse.BodyHandlers.ofByteArray())
-                .thenApply(HttpResponse::body)
-                .thenApply(responseBody -> (Result) SerializationUtils.deserialize(responseBody));
+    public String getDocumentsLocation() {
+        return documentsLocation;
+    }
+
+    public static class SearchResultInfo {
+        private String title;
+        private String extension;
+        private int score;
+
+        public SearchResultInfo(String title, String extension, int score) {
+            this.title = title;
+            this.extension = extension;
+            this.score = score;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getExtension() {
+            return extension;
+        }
+
+        public int getScore() {
+            return score;
+        }
     }
 }

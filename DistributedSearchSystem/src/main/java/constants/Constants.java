@@ -9,4 +9,6 @@ public class Constants {
     public static final String STATUS_ENDPOINT = "/status";
     public static final String WORKER_TASK_ENDPOINT = "/task";
     public static final String SEARCH_ENDPOINT = "/search";
+    public static final String BOOKS_DIRECTORY = "./resources/books/";
+    public static final String COORDINATORS_REGISTRY_ZNODE = "/coordinators_service_registry";
 }

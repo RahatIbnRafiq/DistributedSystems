@@ -24,9 +24,6 @@
 
 package networking;
 
-import model.Result;
-import model.SerializationUtils;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -42,14 +39,13 @@ public class WebClient {
                 .build();
     }
 
-    public CompletableFuture<Result> sendTask(String url, byte[] requestPayload) {
+    public CompletableFuture<byte[]> sendTask(String url, byte[] requestPayload) {
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofByteArray(requestPayload))
                 .uri(URI.create(url))
                 .build();
 
         return client.sendAsync(request, HttpResponse.BodyHandlers.ofByteArray())
-                .thenApply(HttpResponse::body)
-                .thenApply(responseBody -> (Result) SerializationUtils.deserialize(responseBody));
+                .thenApply(HttpResponse::body);
     }
 }

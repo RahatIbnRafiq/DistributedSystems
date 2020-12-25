@@ -30,6 +30,7 @@ import org.apache.zookeeper.data.Stat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class ServiceRegistry implements Watcher {
     public static final String WORKERS_REGISTRY_ZNODE = "/workers_service_registry";
@@ -38,18 +39,16 @@ public class ServiceRegistry implements Watcher {
     private List<String> allServiceAddresses = null;
     private String currentZnode = null;
     private final String serviceRegistryZnode;
+    private final Random random;
 
     public ServiceRegistry(ZooKeeper zooKeeper, String serviceRegistryZnode) {
         this.zooKeeper = zooKeeper;
         this.serviceRegistryZnode = serviceRegistryZnode;
+        this.random = new Random();
         createServiceRegistryNode();
     }
 
     public void registerToCluster(String metadata) throws KeeperException, InterruptedException {
-        if (currentZnode != null) {
-            System.out.println("Already registered to service registry");
-            return;
-        }
         this.currentZnode = zooKeeper.create(serviceRegistryZnode + "/n_", metadata.getBytes(),
                 ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
         System.out.println("Registered to service registry");
@@ -92,6 +91,18 @@ public class ServiceRegistry implements Watcher {
             updateAddresses();
         }
         return allServiceAddresses;
+    }
+
+    public synchronized String getRandomServiceAddress() throws KeeperException, InterruptedException {
+        if (allServiceAddresses == null) {
+            updateAddresses();
+        }
+        if (!allServiceAddresses.isEmpty()) {
+            int randomIndex = random.nextInt(allServiceAddresses.size());
+            return allServiceAddresses.get(randomIndex);
+        } else {
+            return null;
+        }
     }
 
     private synchronized void updateAddresses() throws KeeperException, InterruptedException {

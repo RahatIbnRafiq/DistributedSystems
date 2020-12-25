@@ -22,17 +22,18 @@
  *  SOFTWARE.
  */
 
-import cluster.management.LeaderElection;
 import cluster.management.ServiceRegistry;
+import networking.WebServer;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
+import search.UserSearchHandler;
 
 import java.io.IOException;
 
 /**
- * Search Cluster Coordinator - Distributed Search Part 2
+ * Search Web Application - Distributed Search Part 3
  */
 public class Application implements Watcher {
     private static final String ZOOKEEPER_ADDRESS = "localhost:2181";
@@ -40,21 +41,20 @@ public class Application implements Watcher {
     private ZooKeeper zooKeeper;
 
     public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
-        int currentServerPort = 8080;
+        int currentServerPort = 9000;
         if (args.length == 1) {
             currentServerPort = Integer.parseInt(args[0]);
         }
         Application application = new Application();
         ZooKeeper zooKeeper = application.connectToZookeeper();
 
-        ServiceRegistry workersServiceRegistry = new ServiceRegistry(zooKeeper, ServiceRegistry.WORKERS_REGISTRY_ZNODE);
         ServiceRegistry coordinatorsServiceRegistry = new ServiceRegistry(zooKeeper, ServiceRegistry.COORDINATORS_REGISTRY_ZNODE);
 
-        OnElectionAction onElectionAction = new OnElectionAction(workersServiceRegistry, coordinatorsServiceRegistry, currentServerPort);
+        UserSearchHandler searchHandler = new UserSearchHandler(coordinatorsServiceRegistry);
+        WebServer webServer = new WebServer(currentServerPort, searchHandler);
+        webServer.startServer();
 
-        LeaderElection leaderElection = new LeaderElection(zooKeeper, onElectionAction);
-        leaderElection.volunteerForLeadership();
-        leaderElection.reelectLeader();
+        System.out.println("Server is listening on port " + currentServerPort);
 
         application.run();
         application.close();

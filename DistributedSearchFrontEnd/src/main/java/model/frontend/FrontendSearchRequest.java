@@ -22,34 +22,22 @@
  *  SOFTWARE.
  */
 
-package networking;
+package model.frontend;
 
-import model.Result;
-import model.SerializationUtils;
+public class FrontendSearchRequest {
+    private String searchQuery;
+    private long maxNumberOfResults = Long.MAX_VALUE;
+    private double minScore = 0.0;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
-
-public class WebClient {
-    private HttpClient client;
-
-    public WebClient() {
-        this.client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_1_1)
-                .build();
+    public String getSearchQuery() {
+        return searchQuery;
     }
 
-    public CompletableFuture<Result> sendTask(String url, byte[] requestPayload) {
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofByteArray(requestPayload))
-                .uri(URI.create(url))
-                .build();
+    public long getMaxNumberOfResults() {
+        return maxNumberOfResults;
+    }
 
-        return client.sendAsync(request, HttpResponse.BodyHandlers.ofByteArray())
-                .thenApply(HttpResponse::body)
-                .thenApply(responseBody -> (Result) SerializationUtils.deserialize(responseBody));
+    public double getMinScore() {
+        return minScore;
     }
 }
