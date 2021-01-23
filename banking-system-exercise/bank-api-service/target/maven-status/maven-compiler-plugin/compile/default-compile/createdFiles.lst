@@ -1,0 +1,5 @@
+IncomingTransactionsReader.class
+Transaction.class
+Transaction$TransactionSerializer.class
+UserResidenceDatabase.class
+Application.class
